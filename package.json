@@ -1,0 +1,15 @@
+{
+  "name": "kuberdemo",
+  "version": "1.0.0",
+  "description": "packages for project kubernetes demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anshuk Singh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
