@@ -11,5 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anshulbing/kuberdemo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anshulbing/kuberdemo/issues"
+  },
+  "homepage": "https://github.com/anshulbing/kuberdemo#readme"
 }
