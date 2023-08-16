@@ -44,7 +44,7 @@ pipeline {
                     def deploymentYaml = readFile("deployment.yml")
 
                     sh "kubectl --kubeconfig=${kubeConfig} apply -n ${namespace} -f - <<EOF\n${deploymentYaml}\nEOF"
-                    kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubernetesconfig")
+                    
                 }
             }
         }
