@@ -41,7 +41,7 @@ pipeline {
                 script {
                     def kubeConfig = credentials('kubernetesconfig')
                     def namespace = 'kuberdemo'
-                    def deploymentYaml = readFile("deployment.yml")
+                    def deploymentYaml = readFile('./deployment.yml')
 
                     sh "kubectl --kubeconfig=${kubeConfig} apply -n ${namespace} -f - <<EOF\n${deploymentYaml}\nEOF"
                     
