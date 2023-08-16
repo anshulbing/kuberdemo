@@ -39,7 +39,12 @@ pipeline {
         stage("Deploying App in to KUBERNETES"){
             steps {
                 script {
-                    kubernetesDeploy(configs: "deployment.yml", kube,configId: "kubernetes")
+                    def kubeConfig = credentials('kubernetesconfig')
+                    def namespace = 'kuberdemo'
+                    def deploymentYaml = readFile("deployment.yml")
+
+                    sh "kubectl --kubeconfig=${kubeConfig} apply -n ${namespace} -f - <<EOF\n${deploymentYaml}\nEOF"
+                    kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubernetesconfig")
                 }
             }
         }
