@@ -36,20 +36,12 @@ pipeline {
             }
         }
 
-        stage("Deploying App in to KUBERNETES"){
+        stage('Deploying React.js container to Kubernetes') {
             steps {
                 script {
-                    def kubeConfig = credentials('kubernetesconfig')
-                    println "kubeConfig---"
-                    println kubeConfig
-                    def namespace = 'kuberdemo'
-                    println "namespace---"
-                    println namespace
-                    println "Now running sh"
-
-                    sh "kubectl --kubeconfig=${kubeConfig} apply -n ${namespace} -f deployment.yml"
-                    
-                }
+                    kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+                        
+                    }
             }
         }
     }
