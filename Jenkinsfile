@@ -40,6 +40,8 @@ pipeline {
             steps {
                 script {
                     kubernetesDeploy(configs: "deployment.yaml,service.yaml")
+                    kubeconfigId: 'kubernetesconfig'
+                    namespace: 'kuberdemo'
                         
                     }
             }
